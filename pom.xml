@@ -14,7 +14,7 @@
         <module>server</module>
         <module>device</module>
         <module>common</module>
-        <module>monitor</module>
+        <module>manager</module>
     </modules>
 
     <properties>
