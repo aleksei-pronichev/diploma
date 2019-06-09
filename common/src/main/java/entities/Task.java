@@ -27,8 +27,8 @@ public class Task {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "master")
-    private String master;
+    @Column(name = "device")
+    private String device;
 
     @Column(name = "traffic")
     @Enumerated(EnumType.ORDINAL)
@@ -38,38 +38,38 @@ public class Task {
     @Enumerated(EnumType.ORDINAL)
     private TaskType task;
 
-    public Task(String id, String address, String master, TrafficType traffic, TaskType task) {
+    public Task(String id, String address, String device, TrafficType traffic, TaskType task) {
         this.id = id;
         this.address = address;
-        this.master = master;
+        this.device = device;
         this.traffic = traffic;
         this.task = task;
     }
 
-    public Task(String id, String master, TrafficType traffic, TaskType task) {
+    public Task(String id, String device, TrafficType traffic, TaskType task) {
         this.id = id;
-        this.master = master;
+        this.device = device;
         this.traffic = traffic;
         this.task = task;
     }
 
-    public Task(String id, String master, TaskType task) {
+    public Task(String id, String device, TaskType task) {
         this.id = id;
-        this.master = master;
+        this.device = device;
         this.task = task;
     }
 
-    public Task(String id, String address, String master, TaskType task) {
+    public Task(String id, String address, String device, TaskType task) {
         this.id = id;
         this.address = address;
-        this.master = master;
+        this.device = device;
         this.task = task;
     }
 
     public Task(PacketTask packet, TaskType task) {
         this.id = packet.getId();
         this.address = packet.getAddress();
-        this.master = packet.getMaster();
+        this.device = packet.getMaster();
         this.traffic = packet.getTrafficType();
         this.task = task;
     }

@@ -15,33 +15,33 @@ public class PacketTask extends Packet {
         setPacketType(PacketType.TASK);
     }
     private String address;
-    private String master;
     private TrafficType trafficType;
     private boolean start;
+    private String key;
 
-    public PacketTask(String address, String master, TrafficType trafficType, boolean start) {
+    public PacketTask(String address, TrafficType trafficType, boolean start, String key) {
         this.address = address;
-        this.master = master;
         this.trafficType = trafficType;
         this.start = start;
+        this.key = key;
     }
 
-    public PacketTask(String master, boolean start) {
-        this.master = master;
+    public PacketTask(boolean start, String key) {
         this.trafficType = TrafficType.ALL;
         this.start = start;
+        this.key = key;
     }
 
-    public PacketTask(String address, String master, boolean start) {
+    public PacketTask(String address, boolean start, String key) {
         this.address = address;
-        this.master = master;
         this.trafficType = TrafficType.ALL;
         this.start = start;
+        this.key = key;
     }
 
-    public PacketTask(String master, TrafficType trafficType, boolean start) {
-        this.master = master;
+    public PacketTask(TrafficType trafficType, boolean start, String key) {
         this.trafficType = trafficType;
         this.start = start;
+        this.key = key;
     }
 }
