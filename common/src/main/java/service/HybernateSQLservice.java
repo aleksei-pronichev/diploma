@@ -6,6 +6,7 @@ package service;
  *@version 09.06.2019
  */
 
+import entities.Result;
 import entities.Task;
 import entities.Traffic;
 import org.hibernate.MappingException;
@@ -75,5 +76,14 @@ public class HybernateSQLservice implements SQLService {
         Traffic[] traffic = (Traffic[]) session.createQuery("from traffic where master = " + task.getId()).list().toArray();
         session.close();
         return traffic;
+    }
+
+    @Override
+    public Result[] getResults(Task task) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        Result[] results = (Result[]) session.createQuery("from results where master = " + task.getId()).list().toArray();
+        session.close();
+        return results;
     }
 }

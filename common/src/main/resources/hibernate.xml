@@ -19,5 +19,6 @@
         <mapping package="entities"/>
         <mapping class="entities.Task"/>
         <mapping class="entities.Traffic"/>
+        <mapping class="entities.Result"/>
     </session-factory>
 </hibernate-configuration>

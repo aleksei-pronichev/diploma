@@ -6,6 +6,7 @@ package service;
  * @version 09.06.2019
  */
 
+import entities.Result;
 import entities.Task;
 import entities.Traffic;
 
@@ -25,4 +26,6 @@ public interface SQLService {
 
     // получить трафик по задаче
     public Traffic[] getTraffic(Task task);
+
+    public Result[] getResults(Task task);
 }

@@ -67,7 +67,7 @@ public class Task {
     }
 
     public Task(PacketTask packet, TaskType task) {
-        this.id = packet.getId();
+        this.id = packet.getTask();
         this.address = packet.getAddress();
         this.device = "localhost";
         this.traffic = packet.getTrafficType();

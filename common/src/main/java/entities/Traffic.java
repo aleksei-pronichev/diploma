@@ -34,7 +34,7 @@ public class Traffic {
     private Date date;
 
 
-    @Column(name = "device")
+    @Column(name = "monitor")
     private String monitor;
 
     public Traffic(long count, Date date, String monitor) {
