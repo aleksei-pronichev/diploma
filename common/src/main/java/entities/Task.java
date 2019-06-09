@@ -69,7 +69,7 @@ public class Task {
     public Task(PacketTask packet, TaskType task) {
         this.id = packet.getId();
         this.address = packet.getAddress();
-        this.device = packet.getMaster();
+        this.device = "localhost";
         this.traffic = packet.getTrafficType();
         this.task = task;
     }
