@@ -45,7 +45,7 @@ public class GeneralHandler extends ChannelInboundHandlerAdapter {
 
     // ответ на запрос постановки задачи
     private void setTask(ChannelHandlerContext channel, PacketTask packet) {
-        if (checkServer(packet.getMaster())) {
+        if (checkServer(packet.getKey())) {
             sqlService.add(new Task(packet, TaskType.LOCAL));
             channel.writeAndFlush(
                     new PacketTaskResponse(packet, true));
@@ -63,6 +63,7 @@ public class GeneralHandler extends ChannelInboundHandlerAdapter {
             channel.writeAndFlush(new PacketError("Задача не была найдена в БД" + packet.getMonitor()));
             return;
         }
+
         Date start = packet.getDateStart();
         Date finish = packet.getDateFinish();
         Traffic[] traffic = sqlService.getTraffic(task);
@@ -86,7 +87,7 @@ public class GeneralHandler extends ChannelInboundHandlerAdapter {
     }
 
     // специальный метод, используется для проверки подленности мастера заданий, не реализован
-    private boolean checkServer(String ip) {
+    private boolean checkServer(String key) {
         return true;
     }
 
