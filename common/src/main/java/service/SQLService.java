@@ -9,8 +9,6 @@ package service;
 import entities.Task;
 import entities.Traffic;
 
-import java.util.Date;
-
 public interface SQLService {
 
     // добавление сущности в базу

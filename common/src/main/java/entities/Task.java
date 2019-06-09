@@ -6,11 +6,11 @@ package entities;
  */
 
 import Enums.TaskType;
+import Enums.TrafficType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import packets.PacketTask;
-import Enums.TrafficType;
 
 import javax.persistence.*;
 
