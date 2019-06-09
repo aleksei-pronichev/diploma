@@ -12,8 +12,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.serialization.ClassResolvers;
 import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
-
-import ru.pronichev.server.handlers.*;
+import ru.pronichev.server.handlers.CheckPackageHandler;
+import ru.pronichev.server.handlers.GeneralHandler;
 import service.SQLService;
 
 public class ServerInitializer extends ChannelInitializer<SocketChannel> {
