@@ -7,6 +7,7 @@ package ru.pronichev.server.handlers;
  */
 
 import Enums.TaskType;
+import entities.Result;
 import entities.Task;
 import entities.Traffic;
 import io.netty.channel.ChannelHandlerContext;
@@ -35,6 +36,10 @@ public class GeneralHandler extends ChannelInboundHandlerAdapter {
                 getTraffic(ctx,(PacketTraffic) packet);
                 break;
             }
+            case RESULT: {
+                getResult(ctx,(PacketResult) packet);
+                break;
+            }
             default:
                 packet.toString();
                 ctx.writeAndFlush(
@@ -54,6 +59,16 @@ public class GeneralHandler extends ChannelInboundHandlerAdapter {
                     new PacketTaskResponse(
                             packet, false, "Сервер не являеться мастером с необходимыми правами"));
         }
+    }
+
+    private void getResult(ChannelHandlerContext channel, PacketResult packet) {
+        Task task = sqlService.getTask(packet.getMonitor());
+        if (task == null) {
+            channel.writeAndFlush(new PacketError("Задача не была найдена в БД" + packet.getMonitor()));
+            return;
+        }
+        Result[] results = sqlService.getResults(task);
+        channel.writeAndFlush(new PacketResultResponse(packet, results));
     }
 
     // формирование ответа на запрос
