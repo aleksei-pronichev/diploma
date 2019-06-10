@@ -15,4 +15,8 @@ public class PacketResult extends Packet {
         setPacketType(PacketType.RESULT);
     }
     private String monitor;
+
+    public PacketResult(String monitor) {
+        this.monitor = monitor;
+    }
 }
