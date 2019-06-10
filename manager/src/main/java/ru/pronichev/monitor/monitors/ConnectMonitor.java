@@ -9,7 +9,7 @@ package ru.pronichev.monitor.monitors;
 import entities.Result;
 import entities.Traffic;
 import packets.*;
-import service.Analizator;
+import Analizator;
 import service.ConnectionAdapter;
 import service.NettyAdapter;
 

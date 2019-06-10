@@ -21,17 +21,16 @@ public class NettyAdapter implements ConnectionAdapter {
     private Socket socket;
     private ObjectDecoderInputStream in;
     private ObjectEncoderOutputStream out;
+    private boolean connected;
 
     public boolean isConnected() {
         return connected;
     }
 
-    private boolean connected = false;
-
     public NettyAdapter(String address, int port) {
         this.address = address;
         this.port = port;
-        connect();
+        this.connected = false;
     }
 
     private boolean resetConnection() {
