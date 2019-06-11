@@ -3,13 +3,12 @@ package ru.pronichev.monitor.monitors;
 /* Удаленный монитор, не хватает анализатора
  *
  * @author Aleksei Pronichev
- * 02.04.2019
+ * 09.06.2019
  */
 
 import entities.Result;
 import entities.Traffic;
 import packets.*;
-import Analizator;
 import service.ConnectionAdapter;
 import service.NettyAdapter;
 
@@ -18,7 +17,6 @@ import java.util.List;
 
 public class ConnectMonitor implements Monitor {
 
-    private Analizator analizator;
     private String id;
     private ConnectionAdapter adapter;
     private boolean analise;
@@ -55,7 +53,7 @@ public class ConnectMonitor implements Monitor {
             if (adapter.connect()) {
                 Packet packet = adapter.sendPacket(new PacketResult(id));
                 switch (packet.getPacketType()) {
-                    case RESULT_RESPONSE:
+                    case RESULT_RESPONSE :
                         PacketResultResponse packetResponse = (PacketResultResponse) packet;
                         results = packetResponse.getResults();
                         break;

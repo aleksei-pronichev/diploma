@@ -3,7 +3,7 @@ package ru.pronichev.monitor.monitors;
 /* Будущий локильный монитор
  *
  * @author Aleksei Pronichev
- * 02.04.2019
+ * 09.06.2019
  */
 
 import entities.Result;
